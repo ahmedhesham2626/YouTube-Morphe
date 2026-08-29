@@ -8,11 +8,19 @@ morphe_dl(){
 }
 1() {
 	morphe_dl
-	# Patch YouTube - Arm64-v8a only:
+	# Patch YouTube - default package name, black icon - Arm64-v8a only:
 	get_patches_key "youtube-morphe"
 	get_apk "com.google.android.youtube" "youtube" "apk"
 	i=0
-	split_arch "youtube" "morphe"
+	split_arch "youtube" "morphe-black"
+}
+4() {
+	morphe_dl
+	# Patch YouTube - package name "app.youtube.morphe", white icon - Arm64-v8a only:
+	get_patches_key "youtube-morphe"
+	get_apk "com.google.android.youtube" "youtube-white" "apk"
+	i=0
+	split_arch "youtube-white" "morphe-white"
 }
 3() {
 	morphe_dl
@@ -27,5 +35,8 @@ case "$1" in
         ;;
     3)
         3
+        ;;
+    4)
+        4
         ;;
 esac

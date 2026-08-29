@@ -7,6 +7,12 @@
           "customName": "YouTube Morphe",
           "customIcon": "src/branding/youtube-morphe-black"
         }
+      },
+      "Clone app": {
+        "enabled": true,
+        "options": {
+          "packageName": "Default"
+        }
       }
     }
   }

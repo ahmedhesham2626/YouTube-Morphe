@@ -1,0 +1,35 @@
+diff --git a/README.md b/README.md
+index 2510fe3af0de1e7350ee7ddf7276b008b4d90f03..733f3fde003757a0acca8590cba744c57186cf1c 100644
+--- a/README.md
++++ b/README.md
+@@ -26,11 +26,11 @@ A GitHub Actions workflow checks the [Morphe patches](https://github.com/MorpheA
+ 
+ | App | Package name | Icon | Download |
+ | --- | --- | --- | --- |
+-| YouTube Morphe | `com.google.android.youtube` (default) | Black | [youtube-arm64-v8a-morphe-black.apk](../../releases/download/all/youtube-arm64-v8a-morphe-black.apk) |
++| YouTube Morphe | `com.google.android.youtube.morphe` | Black | [youtube-arm64-v8a-morphe-black.apk](../../releases/download/all/youtube-arm64-v8a-morphe-black.apk) |
+ | YouTube Morphe (alt) | `app.youtube.morphe` | White | [youtube-white-arm64-v8a-morphe-white.apk](../../releases/download/all/youtube-white-arm64-v8a-morphe-white.apk) |
+ | YouTube Music Morphe | `com.google.android.apps.youtube.music` (default) | Default | [youtube-music-arm64-v8a-morphe.apk](../../releases/download/all/youtube-music-arm64-v8a-morphe.apk) |
+ 
+-The two YouTube builds are the same patch set with different package names and icons, so you can install both side by side on the same device (for example, one for a personal account and one for a work/secondary account).
++Both YouTube builds use their own package name (distinct from `com.google.android.youtube` and from each other), so you can install either — or both — alongside the official YouTube app on the same device.
+ 
+ ## ❓ Questions
+ 
+diff --git a/src/options/morphe-black.json b/src/options/morphe-black.json
+index 002c7348a98a469229a1591d162dd3d6a6cc8148..300c8b50742789a113c3d05b58fc397f274d8733 100644
+--- a/src/options/morphe-black.json
++++ b/src/options/morphe-black.json
+@@ -7,6 +7,12 @@
+           "customName": "YouTube Morphe",
+           "customIcon": "src/branding/youtube-morphe-black"
+         }
++      },
++      "Clone app": {
++        "enabled": true,
++        "options": {
++          "packageName": "Default"
++        }
+       }
+     }
+   }

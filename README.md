@@ -26,11 +26,11 @@ A GitHub Actions workflow checks the [Morphe patches](https://github.com/MorpheA
 
 | App | Package name | Icon | Download |
 | --- | --- | --- | --- |
-| YouTube Morphe | `com.google.android.youtube` (default) | Black | [youtube-arm64-v8a-morphe-black.apk](../../releases/download/all/youtube-arm64-v8a-morphe-black.apk) |
+| YouTube Morphe | `com.google.android.youtube.morphe` | Black | [youtube-arm64-v8a-morphe-black.apk](../../releases/download/all/youtube-arm64-v8a-morphe-black.apk) |
 | YouTube Morphe (alt) | `app.youtube.morphe` | White | [youtube-white-arm64-v8a-morphe-white.apk](../../releases/download/all/youtube-white-arm64-v8a-morphe-white.apk) |
 | YouTube Music Morphe | `com.google.android.apps.youtube.music` (default) | Default | [youtube-music-arm64-v8a-morphe.apk](../../releases/download/all/youtube-music-arm64-v8a-morphe.apk) |
 
-The two YouTube builds are the same patch set with different package names and icons, so you can install both side by side on the same device (for example, one for a personal account and one for a work/secondary account).
+Both YouTube builds use their own package name (distinct from `com.google.android.youtube` and from each other), so you can install either — or both — alongside the official YouTube app on the same device.
 
 ## ❓ Questions
 

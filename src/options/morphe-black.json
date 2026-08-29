@@ -11,7 +11,7 @@
       "Clone app": {
         "enabled": true,
         "options": {
-          "packageName": "Default"
+          "packageName": "app.android.youtube.morphe"
         }
       }
     }

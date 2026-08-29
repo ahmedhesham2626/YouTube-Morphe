@@ -4,7 +4,7 @@
   <br>
 </h1>
 
-### Q: I'm facing a playback issue (Video stop loading after start 10-30s). How can I fix it?
+### Q: I'm facing a playback issue (video stops loading after 10-30s). How can I fix it?
 
 The issue might be that your Android OS is preventing MicroG (GMS Core) from running in the background. Follow these instructions to resolve the problem.
 
@@ -12,53 +12,61 @@ The issue might be that your Android OS is preventing MicroG (GMS Core) from run
 
 ---
 
-### Q: How do I use this repository for patching my own app?
+### Q: How do I use this repository for patching my own build?
 
-You should [fork](https://github.com/FiorenMas/Revanced-And-Revanced-Extended-Non-Root/fork) the repository, and then go to the `Action` tab
+[Fork](https://github.com/ahmedhesham2626/YouTube-Morphe/fork) the repository, then go to the `Actions` tab.
 ![Click Action](../docs/image/FAQ/patching-app-1.png)
 
-Click "I understand my workflows, go ahead and enable them"
+Click "I understand my workflows, go ahead and enable them".
 ![Click "I understand my workflows, go ahead and enable them"](../docs/image/FAQ/patching-app-2.png)
 
-Follow these steps to run the workflow for Manual Patch apps!
+Follow these steps to run the "Manual Patch" workflow.
 ![](../docs/image/FAQ/patching-app-3.png)
 
-And then go to Readme click download your patched apps!
+Once it finishes, download your patched APK from the release listed in the README.
 
 ---
 
-### Q: I want to use custom patches for patching my apps. How can I do it?
+### Q: I want to change which patches are applied. How can I do it?
 
-You should open the folder `Revanced-And-Revanced-Extended-Non-Root/src/patches/`. It contains a lot of folders that are named after the apps you’re patching. Each folder has two files: exclude-patches and include-patches. Edit these files with the patches you like, putting one patch per line, following the patches list here:
+Open [`src/patches/`](../src/patches). It contains one folder per app (`youtube-morphe`, `youtube-music-morphe`), each with two files: `exclude-patches` and `include-patches`. Add one patch name per line, following the available patches list here:
 
-* For Revanced: https://github.com/revanced/revanced-patches
-* For Revanced Extended: https://github.com/inotia00/revanced-patches/tree/revanced-extended
-* For Revanced Extended Android 6 & 7: https://github.com/kitadai31/revanced-patches-android6-7/tree/revanced-extended
+* [Morphe patches](https://github.com/MorpheApp/morphe-patches)
 
 ---
 
-### Q: I want to use a custom file options.json. How can I do it?
+### Q: I want to change patch options (branding, package name, etc). How can I do it?
 
-You should open the folder [Revanced-And-Revanced-Extended-Non-Root/src/options/](../src/options). It contains files revanced-extended.json, anddea.json... edit those file the same as you would options.json
+Open [`src/options/`](../src/options). Each file is a JSON array of patch bundles, where each entry enables a patch by name and sets its options. For example, to rename YouTube and give it a custom icon:
 
-Revanced alias no longer use options.json anymore use directly `Revanced-And-Revanced-Extended-Non-Root/src/patches/` instead.
+```json
+[
+  {
+    "patches": {
+      "Custom branding": {
+        "enabled": true,
+        "options": {
+          "customName": "YouTube Morphe",
+          "customIcon": "src/branding/youtube-morphe-black"
+        }
+      }
+    }
+  }
+]
+```
 
-The options separate with patches name with `|`
-
-Example Youtube apps include patches:
-
-`Custom branding|-OappName="YouTube ReVanced" -OiconPath=ReVanced*Logo`
+`morphe-black.json` and `morphe-white.json` are the options files actually used by the two YouTube builds; `morphe.json` is used by the YouTube Music build. See `src/build/morphe.sh` for which options file each build reads.
 
 ---
 
-### Q: I am facing errors using your apps, what do I do?
+### Q: I am facing errors using these apps, what do I do?
 
-I’m so sorry about this, but my repository only patches apps from “scripts” by other devs. I can’t fix errors when apps face errors, so if you get errors, please make an issue in [Revanced](https://github.com/revanced/revanced-patches), [Revanced Extended](https://github.com/inotia00/revanced-patches/tree/revanced-extended) or [Revanced Extended Android 6 & 7](https://github.com/kitadai31/revanced-patches-android6-7/tree/revanced-extended) repositories.
+This repository only patches apps using the Morphe patches project — it doesn't write the patches themselves. If you hit an error, please open an issue on [MorpheApp/morphe-patches](https://github.com/MorpheApp/morphe-patches/issues) rather than here, unless you suspect the problem is specific to this build setup.
 
 ---
 
 ### Q: How do I know these apps are safe to use?
 
-You can rest assured that it’s safe because my code is 100% open-source and uses GitHub Actions to patch the apps. The apk files used for patching are downloaded from the trusted site “APKMirror”.
+The build code here is fully open-source and runs through GitHub Actions, so you can inspect exactly what happens at every step. The original YouTube/YouTube Music APKs used as a patching base are downloaded from a trusted source.
 
-----
+---

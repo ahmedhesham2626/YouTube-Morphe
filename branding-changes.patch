@@ -1,0 +1,91 @@
+diff --git a/.github/workflows/manual-patch.yml b/.github/workflows/manual-patch.yml
+index a804b70..f3623ed 100644
+--- a/.github/workflows/manual-patch.yml
++++ b/.github/workflows/manual-patch.yml
+@@ -28,7 +28,7 @@ jobs:
+     strategy:
+       fail-fast: false
+       matrix:
+-        run: [1, 3]
++        run: [1, 3, 4]
+     steps:
+       - name: Checkout
+         uses: actions/checkout@v6.0.2
+diff --git a/src/build/morphe.sh b/src/build/morphe.sh
+index 662a4cb..0424833 100644
+--- a/src/build/morphe.sh
++++ b/src/build/morphe.sh
+@@ -8,11 +8,19 @@ morphe_dl(){
+ }
+ 1() {
+ 	morphe_dl
+-	# Patch YouTube - Arm64-v8a only:
++	# Patch YouTube - default package name, black icon - Arm64-v8a only:
+ 	get_patches_key "youtube-morphe"
+ 	get_apk "com.google.android.youtube" "youtube" "apk"
+ 	i=0
+-	split_arch "youtube" "morphe"
++	split_arch "youtube" "morphe-black"
++}
++4() {
++	morphe_dl
++	# Patch YouTube - package name "app.youtube.morphe", white icon - Arm64-v8a only:
++	get_patches_key "youtube-morphe"
++	get_apk "com.google.android.youtube" "youtube-white" "apk"
++	i=0
++	split_arch "youtube-white" "morphe-white"
+ }
+ 3() {
+ 	morphe_dl
+@@ -28,4 +36,7 @@ case "$1" in
+     3)
+         3
+         ;;
++    4)
++        4
++        ;;
+ esac
+diff --git a/src/options/morphe-black.json b/src/options/morphe-black.json
+new file mode 100644
+index 0000000..002c734
+--- /dev/null
++++ b/src/options/morphe-black.json
+@@ -0,0 +1,13 @@
++[
++  {
++    "patches": {
++      "Custom branding": {
++        "enabled": true,
++        "options": {
++          "customName": "YouTube Morphe",
++          "customIcon": "src/branding/youtube-morphe-black"
++        }
++      }
++    }
++  }
++]
+diff --git a/src/options/morphe-white.json b/src/options/morphe-white.json
+new file mode 100644
+index 0000000..e39c65c
+--- /dev/null
++++ b/src/options/morphe-white.json
+@@ -0,0 +1,19 @@
++[
++  {
++    "patches": {
++      "Custom branding": {
++        "enabled": true,
++        "options": {
++          "customName": "YouTube Morphe",
++          "customIcon": "src/branding/youtube-morphe-white"
++        }
++      },
++      "Clone app": {
++        "enabled": true,
++        "options": {
++          "packageName": "app.youtube.morphe"
++        }
++      }
++    }
++  }
++]

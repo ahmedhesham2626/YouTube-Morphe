@@ -1,0 +1,19 @@
+[
+  {
+    "patches": {
+      "Custom branding": {
+        "enabled": true,
+        "options": {
+          "customName": "YouTube Morphe",
+          "customIcon": "src/branding/youtube-morphe-white"
+        }
+      },
+      "Clone app": {
+        "enabled": true,
+        "options": {
+          "packageName": "app.youtube.morphe"
+        }
+      }
+    }
+  }
+]

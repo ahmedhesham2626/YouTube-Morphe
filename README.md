@@ -26,9 +26,9 @@ A GitHub Actions workflow checks the [Morphe patches](https://github.com/MorpheA
 
 | App | Package name | Icon | Download |
 | --- | --- | --- | --- |
-| YouTube Morphe | `com.google.android.youtube.morphe` | Black | [youtube-arm64-v8a-morphe-black.apk](../../releases/download/all/youtube-arm64-v8a-morphe-black.apk) |
+| YouTube Morphe | `app.android.youtube.morphe` | Black | [youtube-arm64-v8a-morphe-black.apk](../../releases/download/all/youtube-arm64-v8a-morphe-black.apk) |
 | YouTube Morphe (alt) | `app.youtube.morphe` | White | [youtube-white-arm64-v8a-morphe-white.apk](../../releases/download/all/youtube-white-arm64-v8a-morphe-white.apk) |
-| YouTube Music Morphe | `com.google.android.apps.youtube.music` (default) | Default | [youtube-music-arm64-v8a-morphe.apk](../../releases/download/all/youtube-music-arm64-v8a-morphe.apk) |
+| YouTube Music Morphe | `app.morphe.android.apps.youtube.music` (default) | Default | [youtube-music-arm64-v8a-morphe.apk](../../releases/download/all/youtube-music-arm64-v8a-morphe.apk) |
 
 Both YouTube builds use their own package name (distinct from `com.google.android.youtube` and from each other), so you can install either — or both — alongside the official YouTube app on the same device.
 

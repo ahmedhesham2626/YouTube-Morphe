@@ -1,0 +1,29 @@
+diff --git a/README.md b/README.md
+index 54a21fa0960543e2388af36561d99181e6f4a61b..c2f0683e803e85f0ac49f494e7a8331f37eb86a8 100644
+--- a/README.md
++++ b/README.md
+@@ -27,7 +27,7 @@ A GitHub Actions workflow checks the [Morphe patches](https://github.com/MorpheA
+ | App | Package name | Icon | Download |
+ | --- | --- | --- | --- |
+ | YouTube Morphe | `app.android.youtube.morphe` | Black | [youtube-arm64-v8a-morphe-black.apk](../../releases/download/all/youtube-arm64-v8a-morphe-black.apk) |
+-| YouTube Morphe (alt) | `app.youtube.morphe` | White | [youtube-white-arm64-v8a-morphe-white.apk](../../releases/download/all/youtube-white-arm64-v8a-morphe-white.apk) |
++| YouTube Morphe (alt) | `app.youtube.morphe` | White | [youtube-arm64-v8a-morphe-white.apk](../../releases/download/all/youtube-arm64-v8a-morphe-white.apk) |
+ | YouTube Music Morphe | `app.morphe.android.apps.youtube.music` (default) | Default | [youtube-music-arm64-v8a-morphe.apk](../../releases/download/all/youtube-music-arm64-v8a-morphe.apk) |
+ 
+ Both YouTube builds use their own package name (distinct from `com.google.android.youtube` and from each other), so you can install either — or both — alongside the official YouTube app on the same device.
+diff --git a/src/build/morphe.sh b/src/build/morphe.sh
+index 04248334b82bb416345e27a2742258ec42ec1026..f0c5ba365e586d7e5c8bfff155c73ce1b72ecf31 100644
+--- a/src/build/morphe.sh
++++ b/src/build/morphe.sh
+@@ -18,9 +18,9 @@ morphe_dl(){
+ 	morphe_dl
+ 	# Patch YouTube - package name "app.youtube.morphe", white icon - Arm64-v8a only:
+ 	get_patches_key "youtube-morphe"
+-	get_apk "com.google.android.youtube" "youtube-white" "apk"
++	get_apk "com.google.android.youtube" "youtube" "apk"
+ 	i=0
+-	split_arch "youtube-white" "morphe-white"
++	split_arch "youtube" "morphe-white"
+ }
+ 3() {
+ 	morphe_dl

@@ -18,9 +18,9 @@ morphe_dl(){
 	morphe_dl
 	# Patch YouTube - package name "app.youtube.morphe", white icon - Arm64-v8a only:
 	get_patches_key "youtube-morphe"
-	get_apk "com.google.android.youtube" "youtube-white" "apk"
+	get_apk "com.google.android.youtube" "youtube" "apk"
 	i=0
-	split_arch "youtube-white" "morphe-white"
+	split_arch "youtube" "morphe-white"
 }
 3() {
 	morphe_dl
